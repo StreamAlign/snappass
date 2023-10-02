@@ -79,6 +79,13 @@ Here's how to set up ``snappass`` for local development.
     $ python setup.py develop
     $ make dev
 
+    OR
+
+    $ python3 -m venv venv
+    $ source venv/bin/activate
+    $ python setup.py develop
+    $ make dev
+
 4. Create a branch for local development::
 
     $ git checkout -b name-of-your-bugfix-or-feature
@@ -87,10 +94,13 @@ Here's how to set up ``snappass`` for local development.
 
 5. You run a development server with debug and autoreload to manually verify::
 
-    $ docker run -d --name redis-server -p 6379:6379 redis
+    $ docker run --rm -d --name redis-server -p 6379:6379 redis
     $ make run
 
   You now have a running instance on localhost:5000/
+
+  To stop the container run::
+    $ docker stop redis-server
 
 6. Please add some tests to tests.py and run tests::
 
